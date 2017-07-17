@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>weui grid九宫格 BEM</title>
+  <link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      /*禁止浏览器自动修改文字的大小*/
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+    body, html {
+      height: 100%;
+
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    .page, body {
+      background-color: #f8f8f8;
+    }
+    .container {
+      overflow: hidden;
+    }
+    .container, .page {
+      /*相对于body定位
+      absolute 找到离他最近的一个relative 父级元素定位
+      如果没找到就是body*/
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /*background-color: yellow;*/
+    }
+    .page {
+           overflow-y: auto;
+           -webkit-overflow-scrolling:touch;
+           z-index:1;
+           opacity: 1;
+           transition: opacity 2s linear;
+       }
+       .page.js_show {
+         /*-ms-animation: bounceIn Linear 1s forwards;
+         -webkit-animation: bounceIn Linear 1s forwards;
+         animation: bounceIn Linear 1s forwards;*/
+         /*opacity: 1;*/
+       }
+       /*@-webkit-keyframes bounceIn {
+         0% {
+           transform: scale(0);
+           opacity: 0;
+         }
+         60% {
+           opacity: 1;
+         }
+         89% {
+           transform: scale(0.9);
+           opacity: 1;
+         }
+         92% {
+           transform: scale(1.1);
+           opacity: 1;
+         }
+         95% {
+           transform: scale(0.9);
+           opacity: 1;
+         }
+         100% {
+           transform: scale(1);
+           opacity: 1;
+         }
+       }*/
+       /*动画脚本 flipUp*/
+       /*@keyframes flipUp {
+         0% {*/
+           /*水平平移*/
+           /*transform: translateY(100%);
+           opacity: 0;
+         }
+         20% {
+           opacity: 1;
+         }
+         70% {
+           transform: translateY(50%);
+         }
+         100% {
+           transform: translateY(0%);
+           opacity: 1;
+         }
+       }*/
+       .page__hd {
+           padding: 40px;
+       }
+       .page__title {
+           text-align: left;
+           font-size: 20px;
+           font-weight: 400;
+       }
+       .page__desc {
+           margin-top: 5px;
+           color: #888;
+           text-align: left;
+           font-size: 14px;
+       }
+       /*weui-grid 九宫格样式*/
+       .weui-grids {
+         position: relative;
+         overflow: hidden;
+       }
+       .weui-grids:before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         height: 1px;
+         border-top: 1px solid #d9d9d9;
+         /*1px 问题*/
+         -webkit-transform: scaleY(.5);
+         transform: scaleY(.5);
+         transform-origin: 0 0;
+       }
+  </style>
+</head>
+<body ontouchstart>
+  <div id="container" class="container">
+    <div class="page grid animated">
+      <div class="page__hd">
+        <h1 class="page__title">Grid</h1>
+        <p class="page__desc">九宫格</p>
+      </div>
+      <!-- weui框架的名字，项目名字
+      命名空间，
+      样式和已有样式发生冲突
+      common.css 整站通用样式
+      模块样式 电影 图书
+      weui项目里的一个通用组件 grids
+      项目名-组件名
+      weui-grid -->
+      <div class="weui-grids">
+         <a href="javascript:;" class="weui-grid">
+           <div class="weui-grid__icon"><img src="https://weui.io/images/icon_tabbar.png" alt=""></div>
+           <p class="weui-grid__label">Grid</p>
+         </a>
+         <a href="javascript:;" class="weui-grid">
+           <div class="weui-grid__icon"><img src="https://weui.io/images/icon_tabbar.png" alt=""></div>
+           <p class="weui-grid__label">Grid</p>
+         </a>
+         <a href="javascript:;" class="weui-grid">
+           <div class="weui-grid__icon"><img src="https://weui.io/images/icon_tabbar.png" alt=""></div>
+           <p class="weui-grid__label">Grid</p>
+         </a>
+         <a href="javascript:;" class="weui-grid">
+           <div class="weui-grid__icon"><img src="https://weui.io/images/icon_tabbar.png" alt=""></div>
+           <p class="weui-grid__label">Grid</p>
+         </a>
+         <a href="javascript:;" class="weui-grid">
+           <div class="weui-grid__icon"><img src="https://weui.io/images/icon_tabbar.png" alt=""></div>
+           <p class="weui-grid__label">Grid</p>
+         </a>
+         <a href="javascript:;" class="weui-grid">
+           <div class="weui-grid__icon"><img src="https://weui.io/images/icon_tabbar.png" alt=""></div>
+           <p class="weui-grid__label">Grid</p>
+         </a>
+         <a href="javascript:;" class="weui-grid">
+           <div class="weui-grid__icon"><img src="https://weui.io/images/icon_tabbar.png" alt=""></div>
+           <p class="weui-grid__label">Grid</p>
+         </a>
+         <a href="javascript:;" class="weui-grid">
+           <div class="weui-grid__icon"><img src="https://weui.io/images/icon_tabbar.png" alt=""></div>
+           <p class="weui-grid__label">Grid</p>
+         </a>
+         <a href="javascript:;" class="weui-grid">
+           <div class="weui-grid__icon"><img src="https://weui.io/images/icon_tabbar.png" alt=""></div>
+           <p class="weui-grid__label">Grid</p>
+         </a>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+  setTimeout(function() {
+    document.querySelector('.page').classList.add('js_show');
+  },100);
+</script>
+</body>
+</html>
