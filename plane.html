@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>plane</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+    background-color: rgba(135,206,250,0.5);
+    overflow: hidden;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333;
+}
+    html {
+     font-size: 10px;
+     -webkit-tap-highlight-color: transparent;
+    }
+    .plane-wrapper .plane {
+    max-width: 100%;
+    width: 100%;
+}
+    img {
+        vertical-align: middle;
+    }
+    .plane-wrapper {
+        top: 20%;
+        left: 100%;
+        transition: all .5s;
+        position: absolute;
+        display: inline-block;
+        -webkit-animation: undulate 8s linear infinite alternate;
+        animation: undulate 8s linear infinite alternate;
+        -webkit-perspective: 2500px;
+        perspective: 2500px;
+      }
+      *, :after, :before {
+          box-sizing: border-box;
+      }
+      .plane-wrapper .rotate-container {
+    position: absolute;
+    top: 51.7003%;
+    left: 13.1%;
+    display: inline-block;
+    width: 27.424%;
+    height: 14.4474%;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation: rotating .2s linear infinite reverse;
+    animation: rotating .2s linear infinite reverse;
+}
+@keyframes rotating {
+  0% {
+      -webkit-transform: rotate(0) rotateY(-20deg);
+      transform: rotate(0) rotateY(-20deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) rotateY(-20deg);
+    transform: rotate(180deg) rotateY(-20deg);
+}
+100% {
+    -webkit-transform: rotate(360deg) rotateY(-20deg);
+    transform: rotate(360deg) rotateY(-20deg);
+}
+}
+@keyframes undulate {
+  0%, 100%, 50% {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+25% {
+    -webkit-transform: translate3d(-6px,-18px,0);
+    transform: translate3d(-6px,-18px,0);
+}
+75% {
+    -webkit-transform: translate3d(6px,10px,0);
+    transform: translate3d(6px,10px,0);
+}
+}
+  </style>
+</head>
+<body>
+  <div class="plane-wrapper" style="left: -115px;">
+    <img class="plane" src="https://fir.im/images/plane.svg">
+    <div class="rotate-container">
+      <img class="propeller" src="https://fir.im/images/propeller.svg">
+    </div>
+  </div>
+</body>
+</html>
